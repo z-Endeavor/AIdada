@@ -7,6 +7,7 @@ import questions from "../../data/questions.json"
 // import "taro-ui/dist/style/components/button.scss" // 按需引入
 import './index.scss'
 import { useEffect, useState } from 'react'
+import Taro from '@tarojs/taro'
 
 // 做题页面
 
@@ -49,7 +50,9 @@ function doQuestionPage() {
       )}
       { current == questions.length && (
         <AtButton type='primary' circle className='ctrlBtn' disabled={!currentAnswer} onClick={() => {
-          // todo: 跳转结果页面
+          Taro.navigateTo({
+            url: '/pages/result/index'
+          })
         }}>
           查看结果
         </AtButton>
