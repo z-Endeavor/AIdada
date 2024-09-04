@@ -24,7 +24,7 @@ function indexPage() {
       }}>
         开始测试
       </AtButton>
-      <Image src={headerBg} />
+      <Image className='image' src={headerBg} />
       <GlobalFooter />
     </View>
   )
