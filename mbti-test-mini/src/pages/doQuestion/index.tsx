@@ -50,6 +50,9 @@ function doQuestionPage() {
       )}
       { current == questions.length && (
         <AtButton type='primary' circle className='ctrlBtn' disabled={!currentAnswer} onClick={() => {
+          // 传递答案
+          Taro.setStorageSync('answerList', answerList)
+          // 跳转到结果页面
           Taro.navigateTo({
             url: '/pages/result/index'
           })
