@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import UserLayout from "@/layouts/UserLayout.vue";
+import UserLoginView from "@/views/UserLoginView.vue";
+import UserRegisterView from "@/views/UserRegisterView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -15,5 +18,22 @@ export const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+  },
+  {
+    path: "/user",
+    name: "user",
+    component: UserLayout,
+    children: [
+      {
+        path: "/user/login",
+        name: "login",
+        component: UserLoginView,
+      },
+      {
+        path: "/user/register",
+        name: "register",
+        component: UserRegisterView,
+      },
+    ],
   },
 ];
